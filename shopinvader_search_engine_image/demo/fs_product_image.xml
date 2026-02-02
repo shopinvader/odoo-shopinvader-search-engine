@@ -1,9 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!-- oca-hooks:disable=file-not-used -->
 <odoo>
-
     <!-- Mid Century Modern Eames Chair with Molded Arms and Wood Legs -->
-
 
     <record
         id="product_image_relation_1"
@@ -26,7 +24,6 @@
         />
         <field name="sequence">1</field>
     </record>
-
 
     <!-- Ameriwood Home 1783213COM - Meuble TV -->
 
@@ -1053,5 +1050,4 @@
         />
         <field name="sequence">6</field>
     </record>
-
 </odoo>

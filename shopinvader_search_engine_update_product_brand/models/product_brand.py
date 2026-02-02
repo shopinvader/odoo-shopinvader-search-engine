@@ -8,12 +8,12 @@ class ProductBrand(models.Model):
     _inherit = "product.brand"
 
     def write(self, vals):
-        res = super(ProductBrand, self).write(vals)
+        res = super().write(vals)
         self.shopinvader_mark_to_update()
         return res
 
     def shopinvader_mark_to_update(self):
-        res = super(ProductBrand, self).shopinvader_mark_to_update()
+        res = super().shopinvader_mark_to_update()
         self._shopinvader_mark_to_update_associated_products()
         return res
 

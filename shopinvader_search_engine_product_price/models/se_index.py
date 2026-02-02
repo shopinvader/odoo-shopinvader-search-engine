@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class SeIndex(models.Model):
-
     _inherit = "se.index"
 
     pricelist_id = fields.Many2one(

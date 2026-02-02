@@ -9,16 +9,16 @@ class ProductBrandTag(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        res = super(ProductBrandTag, self).create(vals_list)
+        res = super().create(vals_list)
         res.product_brand_ids.shopinvader_mark_to_update()
         return res
 
     def write(self, vals):
-        res = super(ProductBrandTag, self).write(vals)
+        res = super().write(vals)
         if "name" in vals or "product_brand_ids" in vals:
             self.product_brand_ids.shopinvader_mark_to_update()
         return res
 
     def unlink(self):
         self.product_brand_ids.shopinvader_mark_to_update()
-        return super(ProductBrandTag, self).unlink()
+        return super().unlink()

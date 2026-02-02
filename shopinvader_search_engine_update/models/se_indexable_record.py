@@ -4,7 +4,6 @@ from odoo import models
 
 
 class SeIndexableRecord(models.AbstractModel):
-
     _inherit = "se.indexable.record"
 
     def shopinvader_mark_to_update(self):

@@ -29,7 +29,7 @@ class ProductProduct(models.Model):
         if index_id:
             index = self.env["se.index"].browse(index_id)
             loc_records = self._filter_by_index()
-            for (wh_key, wh_ids) in index._get_warehouse_list_for_export().items():
+            for wh_key, wh_ids in index._get_warehouse_list_for_export().items():
                 for loc_record in loc_records.with_context(warehouse=wh_ids):
                     result[loc_record.id][wh_key] = loc_record._prepare_stock_data()
         for record in self:

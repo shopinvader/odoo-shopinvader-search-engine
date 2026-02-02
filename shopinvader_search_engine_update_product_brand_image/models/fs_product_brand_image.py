@@ -12,7 +12,7 @@ class FsProductBrandImage(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        res = super(FsProductBrandImage, self).create(vals_list)
+        res = super().create(vals_list)
         res.get_brands().shopinvader_mark_to_update()
         return res
 
@@ -20,14 +20,14 @@ class FsProductBrandImage(models.Model):
         needs_update = self.needs_brand_update(vals)
         if needs_update:
             products = self.get_brands()
-        res = super(FsProductBrandImage, self).write(vals)
+        res = super().write(vals)
         if needs_update:
             (products | self.get_brands()).shopinvader_mark_to_update()
         return res
 
     def unlink(self):
         products = self.get_brands()
-        res = super(FsProductBrandImage, self).unlink()
+        res = super().unlink()
         products.shopinvader_mark_to_update()
         return res
 

@@ -26,21 +26,21 @@ class ImageMixin(StrictExtendableBaseModel):
                     "small": {
                         "sequence": 0,
                         "src": "https://media.alcyonbelux.be/media/"
-                                "table-nac-inox-60-60-222886.jpg",
+                        "table-nac-inox-60-60-222886.jpg",
                         "alt": "TABLE NAC INOX",
                         "tag": "",
                     },
                     "large": {
                         "sequence": 0,
                         "src": "https://media.alcyonbelux.be/media/"
-                                "table-nac-inox-550-550-222888.jpg",
+                        "table-nac-inox-550-550-222888.jpg",
                         "alt": "TABLE NAC INOX",
                         "tag": "",
                     },
                     "medium": {
                         "sequence": 0,
                         "src": "https://media.alcyonbelux.be/media/"
-                               "table-nac-inox-300-300-222887.jpg",
+                        "table-nac-inox-300-300-222887.jpg",
                         "alt": "TABLE NAC INOX",
                         "tag": "",
                     },

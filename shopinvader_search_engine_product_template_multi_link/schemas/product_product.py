@@ -26,7 +26,7 @@ class ProductProduct(schemas.ProductProduct, extends=True):
         promote the left part as the left part is less important than the right part.
         """
         res = defaultdict(list)
-        for (key, product_ids) in odoo_rec.shopinvader_product_links.items():
+        for key, product_ids in odoo_rec.shopinvader_product_links.items():
             position, link_type_id = key
             link_type = odoo_rec.env["product.template.link.type"].browse(link_type_id)
             if position == LinkPosition.LEFT or link_type.is_symmetric:

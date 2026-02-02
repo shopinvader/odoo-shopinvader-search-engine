@@ -14,7 +14,7 @@ class TestProductProduct(StockCommonCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestProductProduct, cls).setUpClass()
+        super().setUpClass()
         cls.company = cls.env.ref("base.main_company")
         cls.index.stock_level_config = "state_and_low_qty"
         cls.product = cls.product.with_context(index_id=cls.index.id)

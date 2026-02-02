@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class SeBackend(models.Model):
-
     _inherit = "se.backend"
 
     pricelist_ids = fields.Many2many("product.pricelist", string="Pricelists")

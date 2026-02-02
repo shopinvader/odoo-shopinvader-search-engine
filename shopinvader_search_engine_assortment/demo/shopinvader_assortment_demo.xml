@@ -12,5 +12,4 @@
         <field name="user_id" eval="False" />
         <field name="is_assortment" eval="True" />
     </record>
-
 </odoo>

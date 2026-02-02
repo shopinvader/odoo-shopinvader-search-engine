@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class SeBackend(models.Model):
-
     _inherit = "se.backend"
 
     @api.model

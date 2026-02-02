@@ -8,7 +8,6 @@ from ..tools.product_serializer import ProductProductShopinvaderSerializer
 
 
 class SeIndex(models.Model):
-
     _inherit = "se.index"
 
     serializer_type = fields.Selection(

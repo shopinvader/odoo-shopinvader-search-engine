@@ -12,12 +12,11 @@ _logger = logging.getLogger(__name__)
 
 try:
     from slugify import slugify
-except (ImportError, IOError) as err:
+except (OSError, ImportError) as err:
     _logger.debug(err)
 
 
 class SeIndex(models.Model):
-
     _inherit = "se.index"
 
     warehouse_ids = fields.Many2many(

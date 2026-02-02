@@ -5,7 +5,6 @@ from odoo import api, models
 
 
 class SeIndex(models.Model):
-
     _inherit = "se.index"
 
     @api.model

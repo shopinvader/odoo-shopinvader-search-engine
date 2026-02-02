@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
-
     _inherit = "product.product"
 
     shopinvader_price = fields.Json(compute="_compute_shopinvader_price")

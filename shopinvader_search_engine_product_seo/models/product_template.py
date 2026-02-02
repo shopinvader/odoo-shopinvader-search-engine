@@ -5,7 +5,6 @@ from odoo import models
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     def _build_seo_title(self):
