@@ -49,6 +49,7 @@ class TestBrand(ProductBrandImageCase):
         # we change the sequence of the images
         self.brand_white_image.sequence = 2
         self.brand_black_image.sequence = 1
+        self.brand.invalidate_recordset()
         # the order into the images field should be different,
         # the first image should be the black one with the tag "tag2"
         self.backend.image_data_url_strategy = "odoo"

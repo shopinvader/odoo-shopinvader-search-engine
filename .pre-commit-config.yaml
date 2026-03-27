@@ -5,7 +5,6 @@ exclude: |
   ^shopinvader_search_engine_assortment/|
   ^shopinvader_search_engine_image/|
   ^shopinvader_search_engine_product_brand/|
-  ^shopinvader_search_engine_product_brand_image/|
   ^shopinvader_search_engine_product_media/|
   ^shopinvader_search_engine_product_multi_price/|
   ^shopinvader_search_engine_product_price/|
