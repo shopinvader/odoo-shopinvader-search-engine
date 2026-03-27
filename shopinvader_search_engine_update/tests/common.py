@@ -5,7 +5,7 @@ from odoo.addons.shopinvader_search_engine.tests.common import TestProductBindin
 
 
 class TestProductBindingUpdateBase(TestProductBindingBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.product_binding.state = "done"
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.product_binding.state = "done"
+        return rv
