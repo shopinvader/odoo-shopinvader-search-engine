@@ -1,2 +1,11 @@
 odoo-test-helper
 vcrpy-unittest
+
+odoo-addon-shopinvader_base_url @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/1/head#subdirectory=shopinvader_base_url
+odoo-addon-shopinvader_product @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/2/head#subdirectory=shopinvader_product
+odoo-addon-shopinvader_product_seo @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/5/head#subdirectory=shopinvader_product_seo
+odoo-addon-shopinvader_product_brand @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/6/head#subdirectory=shopinvader_product_brand
+
+odoo-addon-shopinvader_search_engine @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/2/head#subdirectory=shopinvader_search_engine
+odoo-addon-shopinvader_search_engine_product_brand @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/6/head#subdirectory=shopinvader_search_engine_product_brand
+odoo-addon-shopinvader_search_engine_update @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/14/head#subdirectory=shopinvader_search_engine_update
