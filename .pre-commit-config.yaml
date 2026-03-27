@@ -3,7 +3,6 @@ exclude: |
   # NOT INSTALLABLE ADDONS
   ^shopinvader_search_engine/|
   ^shopinvader_search_engine_assortment/|
-  ^shopinvader_search_engine_image/|
   ^shopinvader_search_engine_product_brand/|
   ^shopinvader_search_engine_product_brand_image/|
   ^shopinvader_search_engine_product_media/|
