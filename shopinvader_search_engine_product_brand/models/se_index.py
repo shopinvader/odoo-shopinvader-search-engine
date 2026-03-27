@@ -1,6 +1,6 @@
 # Copyright 2023 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 from ..tools.brand_serializer import ProductBrandShopinvaderSerializer
@@ -28,7 +28,9 @@ class SeIndex(models.Model):
                 se_index.serializer_type == "shopinvader_brand_exports"
                 and se_index.model_id != brand_model
             ):
-                raise ValidationError(_("'Serializer Type' must match 'Model'"))
+                raise ValidationError(
+                    self.env._("'Serializer Type' must match 'Model'")
+                )
 
     def _get_serializer(self):
         self.ensure_one()

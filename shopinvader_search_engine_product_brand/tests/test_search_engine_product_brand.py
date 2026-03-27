@@ -5,20 +5,20 @@ from odoo.addons.shopinvader_search_engine.tests.common import TestBindingIndexB
 
 
 class TestBrandBinding(TestBindingIndexBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.brand = cls.env["product.brand"].create({"name": "Test Brand"})
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.brand = self.env["product.brand"].create({"name": "Test Brand"})
         # create index for brand
-        cls.brand_index = cls.env["se.index"].create(
+        self.brand_index = self.env["se.index"].create(
             {
                 "name": "brand",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product_brand.model_product_brand").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product_brand.model_product_brand").id,
                 "serializer_type": "shopinvader_brand_exports",
             }
         )
-        cls.brand_binding = cls.brand._add_to_index(cls.brand_index)
+        self.brand_binding = self.brand._add_to_index(self.brand_index)
+        return rv
 
     def test_product_brand(self):
         brand = self.brand_binding._contextualize(self.brand_binding)
