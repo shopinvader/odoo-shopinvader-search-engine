@@ -1,7 +1,7 @@
 # Copyright 2023 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.exceptions import UserError
 
 from odoo.addons.fs_file.fields import FSFile
@@ -60,7 +60,7 @@ class SeBackend(models.Model):
             )
         if not value:
             raise UserError(
-                _(
+                self.env._(
                     "No URL found for media %(media_name)s with strategy %(strategy)s",
                     media_name=media.name,
                     strategy=self.media_data_url_strategy,

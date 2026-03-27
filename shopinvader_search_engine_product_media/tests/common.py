@@ -15,29 +15,38 @@ class ProductMediaCase(TestFsProductMultiMedia, TestSeBackendCaseBase, Extendabl
         super().setUpClass()
         cls.init_extendable_registry()
         cls.addClassCleanup(cls.reset_extendable_registry)
-        cls.loader = FakeModelLoader(cls.env, cls.__module__)
-        cls.loader.backup_registry()
-        cls.addClassCleanup(cls.loader.restore_registry)
+
+    def setUp(self):
+        super().setUp()
+        self.loader = FakeModelLoader(self.env, self.__module__)
+        self.loader.backup_registry()
         from odoo.addons.connector_search_engine.tests.models import SeBackend, SeIndex
 
-        cls.loader.update_registry(
+        self.loader.update_registry(
             (
                 SeIndex,
                 SeBackend,
             )
         )
-        cls.backend = cls.env["se.backend"].create(
+        self.backend = self.env["se.backend"].create(
             {"name": "Fake SE", "tech_name": "fake_se", "backend_type": "fake"}
         )
-        cls.product_index = cls.env["se.index"].create(
+        self.setup_records()
+
+    def setup_records(self, backend=None):
+        self.product_index = self.env["se.index"].create(
             {
                 "name": "product",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product.model_product_product").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product.model_product_product").id,
                 "serializer_type": "shopinvader_product_exports",
             }
         )
-        cls.product_binding = cls.product_a._add_to_index(cls.product_index)
+        self.product_binding = self.product_a._add_to_index(self.product_index)
+
+    def tearDown(self):
+        self.loader.restore_registry()
+        super().tearDown()
 
     def _default_media(self, media):
         return {
