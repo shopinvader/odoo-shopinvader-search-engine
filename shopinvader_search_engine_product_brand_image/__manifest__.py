@@ -2,17 +2,16 @@
 # @author Sébastien BEAU <sebastien.beau@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-
 {
     "name": "Shopinvader Search Engine Product Brand Image",
     "summary": "Shopinvader Search Engine product Brand Image",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Shopinvader",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": " Akretion,ACSONE SA/NV",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
+    "installable": True,
     "depends": [
         "shopinvader_product_brand",
         "shopinvader_search_engine_image",
@@ -21,5 +20,4 @@
     ],
     "data": [],
     "development_status": "Alpha",
-    "demo": [],
 }
