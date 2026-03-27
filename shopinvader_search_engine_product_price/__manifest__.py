@@ -3,16 +3,14 @@
 
 {
     "name": "Shopinvader Search Engine Product Price",
-    "summary": """
-        Add the export of product prices for Shopinvader""",
-    "version": "16.0.1.1.0",
+    "summary": "Add the export of product prices for Shopinvader",
+    "version": "18.0.1.0.0",
     "category": "e-commerce",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "depends": ["product_get_price_helper", "shopinvader_search_engine"],
     "data": ["views/se_backend.xml", "views/se_index.xml"],
-    "demo": [],
-    "installable": False,
+    "installable": True,
     "development_status": "Alpha",
 }
