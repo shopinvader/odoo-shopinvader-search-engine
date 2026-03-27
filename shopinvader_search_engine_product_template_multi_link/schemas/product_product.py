@@ -3,7 +3,8 @@
 
 from collections import defaultdict
 
-from odoo.addons.http_routing.models.ir_http import slugify
+import slugify
+
 from odoo.addons.shopinvader_product import schemas
 
 from ..models.product_product import LinkPosition
@@ -40,4 +41,4 @@ class ProductProduct(schemas.ProductProduct, extends=True):
 
     def _normalize_product_link_code(self, code):
         """Normalize link code, default to `generic` when missing."""
-        return slugify(code or "generic").replace("-", "_")
+        return slugify.slugify(code or "generic").replace("-", "_")

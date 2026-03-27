@@ -7,16 +7,17 @@
 {
     "name": "Shopinvader Product Link",
     "summary": "Shopinvader Product Link",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "e-commerce",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": "Akretion,GRAP,Camptocamp,ACSONE SA/NV",
     "license": "AGPL-3",
-    "installable": False,
+    "installable": True,
     "auto_install": True,
     "depends": [
         "shopinvader_search_engine",
         "product_template_multi_link",
         "base_sparse_field",
     ],
+    "external_dependencies": {"python": ["python-slugify[unidecode]"]},
 }
