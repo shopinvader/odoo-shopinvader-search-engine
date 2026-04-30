@@ -16,6 +16,6 @@ class ProductProduct(models.Model):
         pricelist = None
         if index_id:
             pricelist = index._get_pricelist()
-        price_unit_list = self._get_price(pricelist=pricelist)
+
         for record in self:
-            record.shopinvader_price = price_unit_list[record.id]
+            record.shopinvader_price = record._get_price(pricelist=pricelist)

@@ -5,19 +5,19 @@ from odoo.addons.shopinvader_search_engine.tests.common import TestBindingIndexB
 
 
 class TestProductBinding(TestBindingIndexBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.index = cls.env["se.index"].create(
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.index = self.env["se.index"].create(
             {
                 "name": "product",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product.model_product_product").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product.model_product_product").id,
                 "serializer_type": "shopinvader_product_exports",
             }
         )
-        cls.product = cls.env.ref("product.product_product_4b")
-        cls.product_binding = cls.product._add_to_index(cls.index)
+        self.product = self.env.ref("product.product_product_4b")
+        self.product_binding = self.product._add_to_index(self.index)
+        return rv
 
     def test_binding_price(self):
         self.product_binding.recompute_json()
