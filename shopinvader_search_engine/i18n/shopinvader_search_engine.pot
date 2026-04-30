@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,6 @@ msgstr ""
 #. module: shopinvader_search_engine
 #. odoo-python
 #: code:addons/shopinvader_search_engine/models/se_index.py:0
-#, python-format
 msgid "'Serializer Type' must match 'Model'"
 msgstr ""
 
