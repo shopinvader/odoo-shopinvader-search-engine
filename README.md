@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [shopinvader_search_engine](shopinvader_search_engine/) | 18.0.1.0.0 |  | Shopinvader Catalog Search Engine Connector
+[shopinvader_search_engine_product_price](shopinvader_search_engine_product_price/) | 18.0.1.0.0 |  | Add the export of product prices for Shopinvader
 
 
 Unported addons
@@ -34,7 +35,6 @@ addon | version | maintainers | summary
 [shopinvader_search_engine_product_brand_image](shopinvader_search_engine_product_brand_image/) | 16.0.1.0.0 (unported) |  | Shopinvader Search Engine product Brand Image
 [shopinvader_search_engine_product_media](shopinvader_search_engine_product_media/) | 16.0.1.0.4 (unported) |  | Index storage media data into search engine
 [shopinvader_search_engine_product_multi_price](shopinvader_search_engine_product_multi_price/) | 16.0.1.1.0 (unported) |  | Add the export of multiple prices for Shopinvader
-[shopinvader_search_engine_product_price](shopinvader_search_engine_product_price/) | 16.0.1.1.0 (unported) |  | Add the export of product prices for Shopinvader
 [shopinvader_search_engine_product_seo](shopinvader_search_engine_product_seo/) | 16.0.1.0.1 (unported) |  | This module allows to configure a seo title suffix on se backends
 [shopinvader_search_engine_product_stock](shopinvader_search_engine_product_stock/) | 16.0.1.0.4 (unported) |  | This module is used to export stock data to search engine
 [shopinvader_search_engine_product_stock_state](shopinvader_search_engine_product_stock_state/) | 16.0.1.0.0 (unported) |  | This module is used to choose a stock state during theexport t search engine
