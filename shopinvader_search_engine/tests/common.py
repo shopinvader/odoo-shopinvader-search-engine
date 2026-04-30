@@ -7,100 +7,93 @@ from odoo.addons.connector_search_engine.tests.common import TestSeBackendCaseBa
 from odoo.addons.extendable.tests.common import ExtendableMixin
 
 
-class TestBindingIndexBase(TestSeBackendCaseBase, FakeModelLoader, ExtendableMixin):
+class TestBindingIndexBase(TestSeBackendCaseBase, ExtendableMixin):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # Load fake models ->/
-        cls.loader = FakeModelLoader(cls.env, cls.__module__)
-        cls.loader.backup_registry()
-        cls.addClassCleanup(cls.loader.restore_registry)
-        from odoo.addons.connector_search_engine.tests.models import (
-            FakeSeAdapter,
-            SeBackend,
-        )
-
-        cls.loader.update_registry([SeBackend])
-        cls.binding_model = cls.env["se.binding"]
-        cls.se_index_model = cls.env["se.index"]
-        cls.backend_model = cls.env["se.backend"]
-        cls.backend = cls.backend_model.create(
-            {"name": "Fake SE", "tech_name": "fake_se", "backend_type": "fake"}
-        )
-
-        cls.se_adapter = FakeSeAdapter
-
         cls.init_extendable_registry()
         cls.addClassCleanup(cls.reset_extendable_registry)
 
+    def setUp(self):
+        super().setUp()
+        # Load fake models ->/
+        self.loader = FakeModelLoader(self.env, self.__module__)
+        self.loader.backup_registry()
+
+        from odoo.addons.connector_search_engine.tests.models import (
+            FakeSeAdapter,
+            SeBackend,
+            SeIndex,
+        )
+
+        self.loader.update_registry((SeIndex, SeBackend))
+        self.se_adapter = FakeSeAdapter
+        self.backend = self.env["se.backend"].create(
+            {"name": "Fake SE", "tech_name": "fake_se", "backend_type": "fake"}
+        )
+        self.setup_records()
+
+    def tearDown(self):
+        self.loader.restore_registry()
+        super().tearDown()
+
+    def setup_records(self, backend=None):
+        pass
+
 
 class TestCategoryBindingBase(TestBindingIndexBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.setup_records()
-
-    @classmethod
-    def _prepare_index_values(cls, backend=None):
-        backend = backend or cls.backend
+    def _prepare_category_index_values(self, backend=None):
+        backend = backend or self.backend
         return {
             "name": "Category Index",
             "backend_id": backend.id,
-            "model_id": cls.env["ir.model"]
+            "model_id": self.env["ir.model"]
             .search([("model", "=", "product.category")], limit=1)
             .id,
-            "lang_id": cls.env.ref("base.lang_en").id,
+            "lang_id": self.env.ref("base.lang_en").id,
             "serializer_type": "shopinvader_category_exports",
         }
 
-    @classmethod
-    def setup_records(cls, backend=None):
-        backend = backend or cls.backend
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        backend = backend or self.backend
         # create an index for category model
-        cls.se_categ_index = cls.se_index_model.create(
-            cls._prepare_index_values(backend)
+        self.se_categ_index = self.env["se.index"].create(
+            self._prepare_category_index_values(backend)
         )
         # create a binding + category alltogether
-        cls.category = cls.env["product.category"].create({"name": "Test category"})
-        cls.category_binding = cls.category._add_to_index(cls.se_categ_index)
+        self.category = self.env["product.category"].create({"name": "Test category"})
+        self.category_binding = self.category._add_to_index(self.se_categ_index)
+        return rv
 
 
-class TestProductBindingMixin:
-    @classmethod
-    def _prepare_index_values(cls, tst_cls, backend=None):
-        backend = backend or tst_cls.backend
+class TestProductBindingBase(TestBindingIndexBase):
+    def _prepare_product_index_values(self, backend=None):
+        backend = backend or self.backend
         return {
             "name": "Product Index",
             "backend_id": backend.id,
-            "model_id": tst_cls.env["ir.model"]
+            "model_id": self.env["ir.model"]
             .search([("model", "=", "product.product")], limit=1)
             .id,
-            "lang_id": tst_cls.env.ref("base.lang_en").id,
+            "lang_id": self.env.ref("base.lang_en").id,
             "serializer_type": "shopinvader_product_exports",
         }
 
-    @classmethod
-    def setup_records(cls, tst_cls, backend=None):
-        backend = backend or tst_cls.backend
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        backend = backend or self.backend
         # create an index for product model
-        tst_cls.se_product_index = tst_cls.env["se.index"].create(
-            cls._prepare_index_values(tst_cls, backend)
+        self.se_product_index = self.env["se.index"].create(
+            self._prepare_product_index_values(backend)
         )
         # create a binding + product alltogether
-        tst_cls.product = tst_cls.env.ref(
+        self.product = self.env.ref(
             "shopinvader_product.product_product_chair_vortex_white"
         )
-        tst_cls.product_binding = tst_cls.product._add_to_index(
-            tst_cls.se_product_index
-        )
-        tst_cls.product_expected = {
-            "id": tst_cls.product.id,
-            "name": tst_cls.product.name,
+        self.product_binding = self.product._add_to_index(self.se_product_index)
+        self.product_expected = {
+            "id": self.product.id,
+            "name": self.product.name,
         }
-
-
-class TestProductBindingBase(TestBindingIndexBase, TestProductBindingMixin):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        TestProductBindingMixin.setup_records(cls)
+        return rv

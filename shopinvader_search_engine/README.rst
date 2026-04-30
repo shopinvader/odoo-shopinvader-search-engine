@@ -16,14 +16,14 @@ Shopinvader Catalog Search Engine Connector
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader-lightgray.png?logo=github
-    :target: https://github.com/shopinvader/odoo-shopinvader/tree/16.0/shopinvader_search_engine
-    :alt: shopinvader/odoo-shopinvader
+.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader--search--engine-lightgray.png?logo=github
+    :target: https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine
+    :alt: shopinvader/odoo-shopinvader-search-engine
 
 |badge1| |badge2| |badge3|
 
-This module is a technical module to implement batch export of data to external
-indexation services.
+This module is a technical module to implement batch export of data to
+external indexation services.
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -38,70 +38,69 @@ indexation services.
 Usage
 =====
 
+To work, this module requires a concrete implementation of a search
+engine. The *connector_elasticsearch* module provides a connector for
+Elasticsearch.
+
 Go to Connector menu.
 
-Under the 'Search Engine Connector' menu,
-you will find a list of all search engines (Backends) defined
-
-Known issues / Roadmap
-======================
-
-* Export price on product
-* Export SEO title on product
+Under the 'Search Engine Connector' menu, you will find a list of all
+search engines (Backends) defined
 
 Changelog
 =========
 
 16.0.1.0.1 (2023-10-13)
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 **Features**
 
-- A complete refactoring has been done to the code. This refactoring was driven by
-  the following goals:
+- A complete refactoring has been done to the code. This refactoring was
+  driven by the following goals:
 
-  * Make the code more readable and maintainable.
-  * Put in place a way to validate data exported to the indexes
-  * Ease the work of frontend developers by providing a schema for the data
-    exported to the indexes.
+  - Make the code more readable and maintainable.
+  - Put in place a way to validate data exported to the indexes
+  - Ease the work of frontend developers by providing a schema for the
+    data exported to the indexes.
 
   Some technical choices have been made to achieve these goals:
 
-  * We removed the need to force the developer to define a specific binding model
-    for each model that needs to be indexed.
-  * We defined serializers based on Pydantic models. This choice allows you to
-    validate the data, generate the documentation and the schema of the data
-    exported to the indexes. It also makes the serialization mechanism more
-    explicit and easier to understand.
-  * We defined more fine-grained modules.
+  - We removed the need to force the developer to define a specific
+    binding model for each model that needs to be indexed.
+  - We defined serializers based on Pydantic models. This choice allows
+    you to validate the data, generate the documentation and the schema
+    of the data exported to the indexes. It also makes the serialization
+    mechanism more explicit and easier to understand.
+  - We defined more fine-grained modules.
 
-  If you need to add additional information to the data exported to the indexes,
-  you only need to extends the Pydantic models by adding your additional fields
-  and extending the method initializing the model from an odoo record. (`#1390 <https://github.com/shopinvader/odoo-shopinvader/issues/1390>`_)
-
+  If you need to add additional information to the data exported to the
+  indexes, you only need to extends the Pydantic models by adding your
+  additional fields and extending the method initializing the model from
+  an odoo record.
+  (`#1390 <https://github.com/shopinvader/odoo-shopinvader/issues/1390>`__)
 
 **Misc**
 
-- `#1423 <https://github.com/shopinvader/odoo-shopinvader/issues/1423>`_
-
+- `#1423 <https://github.com/shopinvader/odoo-shopinvader/issues/1423>`__
 
 10.0.1.0.0 (2017-04-11)
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-* First real version : [REF] rename project to the real name : shoptor is dead long live to shopinvader", 2017-04-11)
+- First real version : [REF] rename project to the real name : shoptor
+  is dead long live to shopinvader", 2017-04-11)
 
 12.0.1.0.0 (2019-05-21)
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-* [12.0][MIG] shopinvader_search_engine
+- [12.0][MIG] shopinvader_search_engine
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/shopinvader/odoo-shopinvader/issues/new?body=module:%20shopinvader_search_engine%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues/new?body=module:%20shopinvader_search_engine%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -109,33 +108,33 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sebastien BEAU <sebastien.beau@akretion.com>
-* Laurent Mignon <laurent.mignon@acsone.eu>
-* Benoît GUILLOT <benoit.guillot@akretion.com>
-* Raphaël Reverdy <raphael.reverdy@akretion.com>
-* Denis Roussel <denis.roussel@acsone.eu>
-* Quentin Groulard <quentin.groulard@acsone.eu>
+- Sebastien BEAU <sebastien.beau@akretion.com>
+- Laurent Mignon <laurent.mignon@acsone.eu>
+- Benoît GUILLOT <benoit.guillot@akretion.com>
+- Raphaël Reverdy <raphael.reverdy@akretion.com>
+- Denis Roussel <denis.roussel@acsone.eu>
+- Quentin Groulard <quentin.groulard@acsone.eu>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 Funders
--------
+~~~~~~~
 
 The development of this module has been financially supported by:
 
-* Akretion R&D
+- Akretion R&D
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
-This module is part of the `shopinvader/odoo-shopinvader <https://github.com/shopinvader/odoo-shopinvader/tree/16.0/shopinvader_search_engine>`_ project on GitHub.
+This module is part of the `shopinvader/odoo-shopinvader-search-engine <https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine>`_ project on GitHub.
 
 You are welcome to contribute.
