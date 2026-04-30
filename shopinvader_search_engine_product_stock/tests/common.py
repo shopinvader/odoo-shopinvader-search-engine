@@ -20,29 +20,39 @@ class StockCommonCase(TestBindingIndexBase, JobMixin):
                 queue_job__no_delay=False,  # we want the jobs
             )
         )
-        ref = cls.env.ref
-        cls.warehouse_1 = ref("stock.warehouse0")
-        cls.loc_1 = cls.warehouse_1.lot_stock_id
-        cls.warehouse_2 = ref("stock.stock_warehouse_shop0")
-        cls.loc_2 = cls.warehouse_2.lot_stock_id
-        cls.product = cls.env["product.product"].create(
-            {"name": "Stock prod 1", "type": "product"}
+
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        ref = self.env.ref
+        self.warehouse_1 = ref("stock.warehouse0")
+        self.loc_1 = self.warehouse_1.lot_stock_id
+        self.warehouse_2 = self.env["stock.warehouse"].create(
+            {"name": "WH2", "code": "WH2"}
         )
-        cls.index = cls.env["se.index"].create(
+        self.loc_2 = self.warehouse_2.lot_stock_id
+        self.product = self.env["product.product"].create(
+            {
+                "name": "Stock prod 1",
+                "type": "consu",
+                "is_storable": True,
+            }
+        )
+        self.index = self.env["se.index"].create(
             {
                 "name": "product",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product.model_product_product").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product.model_product_product").id,
                 "serializer_type": "shopinvader_product_exports",
-                "warehouse_ids": [(6, 0, cls.warehouse_1.ids)],
+                "warehouse_ids": [(6, 0, self.warehouse_1.ids)],
                 "product_stock_field_id": ref(
                     "stock.field_product_product__qty_available"
                 ).id,
             }
         )
-        cls.product_binding = cls.product._add_to_index(cls.index)
-        cls.loc_supplier = cls.env.ref("stock.stock_location_suppliers")
-        cls.picking_type_in = cls.env.ref("stock.picking_type_in")
+        self.product_binding = self.product._add_to_index(self.index)
+        self.loc_supplier = self.env.ref("stock.stock_location_suppliers")
+        self.picking_type_in = self.env.ref("stock.picking_type_in")
+        return rv
 
     def _add_stock_to_product(self, product, location, qty):
         """Set the stock quantity of the product.
@@ -71,24 +81,3 @@ class StockCommonCase(TestBindingIndexBase, JobMixin):
                 "picking_type_id": self.picking_type_in.id,
             }
         )
-
-    # TODO: this should be move to test helper
-    @classmethod
-    def _create_fake_acl(cls, Klass):
-        model_id = cls._test_get_model_id(Klass._name)
-        values = {
-            "name": "Fake ACL for %s" % Klass._name,
-            "model_id": model_id,
-            "perm_read": 1,
-            "perm_create": 1,
-            "perm_write": 1,
-            "perm_unlink": 1,
-            "active": True,
-        }
-        cls.env["ir.model.access"].create(values)
-
-    @classmethod
-    def _test_get_model_id(cls, name):
-        cls.env.cr.execute("SELECT id FROM ir_model WHERE model = %s", (name,))
-        res = cls.env.cr.fetchone()
-        return res[0] if res else None

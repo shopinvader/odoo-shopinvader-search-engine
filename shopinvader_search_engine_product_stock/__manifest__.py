@@ -5,13 +5,13 @@
 {
     "name": "Shopinvader Search Engine Product Stock",
     "summary": "This module is used to export stock data to search engine",
-    "version": "16.0.1.0.4",
+    "version": "18.0.1.0.0",
     "development_status": "Alpha",
     "category": "e-commerce",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": "Akretion,ACSONE SA/NV,Camptocamp",
     "license": "AGPL-3",
-    "installable": False,
+    "installable": True,
     "depends": ["stock", "shopinvader_search_engine"],
     "data": [
         "views/se_backend.xml",
@@ -19,5 +19,5 @@
         "data/queue_job_channel_data.xml",
         "data/queue_job_function_data.xml",
     ],
-    "external_dependencies": {"python": ["slugify"]},
+    "external_dependencies": {"python": ["python-slugify[unidecode]"]},
 }

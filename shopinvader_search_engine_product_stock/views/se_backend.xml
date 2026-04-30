@@ -13,7 +13,7 @@
                 <field name="show_stock_level_config" invisible="1" />
                 <field
                     name="stock_level_config"
-                    attrs="{'invisible': [('show_stock_level_config', '=', False)]}"
+                    invisible="not show_stock_level_config"
                 />
             </xpath>
         </field>

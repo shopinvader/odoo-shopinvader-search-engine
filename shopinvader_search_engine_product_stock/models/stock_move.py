@@ -3,7 +3,7 @@
 # Sébastien BEAU <sebastien.beau@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, models
+from odoo import models
 
 from odoo.addons.queue_job.job import identity_exact
 
@@ -25,7 +25,9 @@ class StockMove(models.Model):
         """
         products = self._get_product_to_update()
         if products:
-            description = _("Update shopinvader variants (stock update trigger)")
+            description = self.env._(
+                "Update shopinvader variants (stock update trigger)"
+            )
             products.with_delay(
                 description=description, identity_key=identity_exact
             ).synchronize_all_binding_stock_level(company_id=self.env.company)
