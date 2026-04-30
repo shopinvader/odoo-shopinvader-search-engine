@@ -17,11 +17,17 @@ Search Engine related modules for Shopinvader
 
 [//]: # (addons)
 
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[shopinvader_search_engine](shopinvader_search_engine/) | 18.0.1.0.0 |  | Shopinvader Catalog Search Engine Connector
+
+
 Unported addons
 ---------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[shopinvader_search_engine](shopinvader_search_engine/) | 16.0.1.0.7 (unported) |  | Shopinvader Catalog Search Engine Connector
 [shopinvader_search_engine_assortment](shopinvader_search_engine_assortment/) | 16.0.1.0.1 (unported) |  | Shopinvader Search Engine Assortment
 [shopinvader_search_engine_image](shopinvader_search_engine_image/) | 16.0.1.0.4 (unported) |  | Add the export of Image for Shopinvader
 [shopinvader_search_engine_product_brand](shopinvader_search_engine_product_brand/) | 16.0.1.0.1 (unported) |  | Shopinvader Search Engine Product Brand
