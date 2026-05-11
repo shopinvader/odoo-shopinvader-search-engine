@@ -16,15 +16,14 @@ Shopinvader Search Engine Product Stock State
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader-lightgray.png?logo=github
-    :target: https://github.com/shopinvader/odoo-shopinvader/tree/16.0/shopinvader_search_engine_product_stock_state
-    :alt: shopinvader/odoo-shopinvader
+.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader--search--engine-lightgray.png?logo=github
+    :target: https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine_product_stock_state
+    :alt: shopinvader/odoo-shopinvader-search-engine
 
 |badge1| |badge2| |badge3|
 
-This is shopinvader product stock state module.
-This module is used to export the stock state of product
-only if the value has been updated.
+This is shopinvader product stock state module. This module is used to
+export the stock state of product only if the value has been updated.
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -39,34 +38,31 @@ only if the value has been updated.
 Configuration
 =============
 
-Go into shopinvader > backend, and on the backend you can choose the mode
-- State and Low Quantity (only add the qty if it behind a defined value)
-- State and Quantity
-- Only State
-- Only Quantity
+Go into shopinvader > backend, and on the backend you can choose the
+mode - State and Low Quantity (only add the qty if it behind a defined
+value) - State and Quantity - Only State - Only Quantity
 
 Usage
 =====
 
-Instead of having only the qty in the json sent to the search engine
-You will have (depending of the configuration, the qty and the state)
+Instead of having only the qty in the json sent to the search engine You
+will have (depending of the configuration, the qty and the state)
 
+.. code:: python
 
-.. code-block:: python
-
-    example :
-        {'global': {
-            'state': 'in_limited_stock',
-            'qty': 5.0,
-        }}
+   example :
+       {'global': {
+           'state': 'in_limited_stock',
+           'qty': 5.0,
+       }}
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/shopinvader/odoo-shopinvader/issues/new?body=module:%20shopinvader_search_engine_product_stock_state%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues/new?body=module:%20shopinvader_search_engine_product_stock_state%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -74,30 +70,30 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sebastien BEAU <sebastien.beau@akretion.com>
-* Simone Orsi <simahawk@gmail.com>
-* Quentin Groulard <quentin.groulard@acsone.eu>
+- Sebastien BEAU <sebastien.beau@akretion.com>
+- Simone Orsi <simahawk@gmail.com>
+- Quentin Groulard <quentin.groulard@acsone.eu>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 Funders
--------
+~~~~~~~
 
 The development of this module has been financially supported by:
 
-* Akretion R&D
+- Akretion R&D
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
-This module is part of the `shopinvader/odoo-shopinvader <https://github.com/shopinvader/odoo-shopinvader/tree/16.0/shopinvader_search_engine_product_stock_state>`_ project on GitHub.
+This module is part of the `shopinvader/odoo-shopinvader-search-engine <https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine_product_stock_state>`_ project on GitHub.
 
 You are welcome to contribute.

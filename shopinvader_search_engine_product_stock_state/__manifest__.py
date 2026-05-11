@@ -5,12 +5,12 @@
     "name": "Shopinvader Search Engine Product Stock State",
     "summary": "This module is used to choose a stock state during the"
     "export t search engine",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Alpha",
     "category": "e-commerce",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": "Akretion",
     "license": "AGPL-3",
-    "installable": False,
+    "installable": True,
     "depends": ["product_stock_state", "shopinvader_search_engine_product_stock"],
 }
