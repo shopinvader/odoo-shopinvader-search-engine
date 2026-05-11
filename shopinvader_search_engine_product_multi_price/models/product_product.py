@@ -15,17 +15,11 @@ class ProductProduct(models.Model):
     def _compute_shopinvader_price_by_pricelist(self):
         index_id = self.env.context.get("index_id", False)
         index = self.env["se.index"].browse(index_id)
-        prices = {}
-        if index_id:
-            for pricelist in index._get_pricelists():
-                price_unit_list = self._get_price(pricelist=pricelist)
-                prices[pricelist.id] = price_unit_list
         for product in self:
             price_by_pricelist = {}
             if index_id:
                 for pricelist in index._get_pricelists():
-                    if product.id in prices[pricelist.id]:
-                        price_by_pricelist.update(
-                            {pricelist.id: prices[pricelist.id][product.id]}
-                        )
+                    price_by_pricelist.update(
+                        {pricelist.id: self._get_price(pricelist=pricelist)}
+                    )
             product.shopinvader_price_by_pricelist = price_by_pricelist

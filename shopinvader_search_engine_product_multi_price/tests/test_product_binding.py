@@ -5,19 +5,19 @@ from odoo.addons.shopinvader_search_engine.tests.common import TestBindingIndexB
 
 
 class TestProductBinding(TestBindingIndexBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.index = cls.env["se.index"].create(
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.index = self.env["se.index"].create(
             {
                 "name": "product",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product.model_product_product").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product.model_product_product").id,
                 "serializer_type": "shopinvader_product_exports",
             }
         )
-        cls.product = cls.env.ref("product.product_product_4b")
-        cls.product_binding = cls.product._add_to_index(cls.index)
+        self.product = self.env.ref("product.product_product_4b")
+        self.product_binding = self.product._add_to_index(self.index)
+        return rv
 
     def test_binding_prices_no_pricelist(self):
         self.product_binding.recompute_json()
@@ -25,8 +25,8 @@ class TestProductBinding(TestBindingIndexBase):
         self.assertEqual(len(data["price_by_pricelist"]), 0)
 
     def test_binding_price_by_pricelist(self):
-        pricelist_1 = self.env.ref("product.list0")
-        pricelist_2 = self.env.ref("product_get_price_helper.pricelist_1")
+        pricelist_1 = self.env.ref("product_get_price_helper.pricelist_1")
+        pricelist_2 = self.env["product.pricelist"].create({"name": "pricelist 2"})
         self.index.backend_id.pricelist_ids = [(6, 0, (pricelist_1 | pricelist_2).ids)]
         self.product_binding.recompute_json()
         data = self.product_binding.data
@@ -34,18 +34,18 @@ class TestProductBinding(TestBindingIndexBase):
         self.assertEqual(
             data["price_by_pricelist"][str(pricelist_1.id)],
             {
-                "value": 750.0,
+                "value": 600.0,
                 "tax_included": False,
                 "discount": 0.0,
-                "original_value": 750.0,
+                "original_value": 600.0,
             },
         )
         self.assertEqual(
             data["price_by_pricelist"][str(pricelist_2.id)],
             {
-                "value": 600.0,
+                "value": 750.0,
                 "tax_included": False,
                 "discount": 0.0,
-                "original_value": 600.0,
+                "original_value": 750.0,
             },
         )
