@@ -3,28 +3,27 @@
 
 from odoo.exceptions import ValidationError
 
-from odoo.addons.connector_search_engine.tests.test_all import TestBindingIndexBaseFake
+from odoo.addons.connector_search_engine.tests.common import TestBindingIndexBaseFake
 
 
 class TestProductAutoBind(TestBindingIndexBaseFake):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-
-        cls.product_obj = cls.env["product.product"]
-        cls.backend.product_assortment_id = cls.env.ref(
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.product_obj = self.env["product.product"]
+        self.backend.product_assortment_id = self.env.ref(
             "shopinvader_search_engine_assortment.shopinvader_assortment1"
         )
-        cls.backend.product_manual_binding = False
-        cls.backend.product_assortment_id.domain = "[('sale_ok', '=', True)]"
-        cls.product_index = cls.env["se.index"].create(
+        self.backend.product_manual_binding = False
+        self.backend.product_assortment_id.domain = "[('sale_ok', '=', True)]"
+        self.product_index = self.env["se.index"].create(
             {
                 "name": "product",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product.model_product_product").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product.model_product_product").id,
                 "serializer_type": "shopinvader_product_exports",
             }
         )
+        return rv
 
     def test_shopinvader_auto_product_auto_bind(self):
         # Test bind all products from assortment domain
