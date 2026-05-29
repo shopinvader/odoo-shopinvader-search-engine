@@ -2,9 +2,10 @@
 # Copyright 2021 Camptocamp (http://www.camptocamp.com).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.osv import expression
+from odoo.tools.sql import SQL
 
 
 class SeBackend(models.Model):
@@ -25,7 +26,7 @@ class SeBackend(models.Model):
             rec.product_manual_binding or rec.product_assortment_id for rec in self
         ):
             raise ValidationError(
-                _("Product Assortment is required for automatic binding")
+                self.env._("Product Assortment is required for automatic binding")
             )
 
     def _autobind_product_from_assortment(self, domain_product=None):
@@ -63,14 +64,15 @@ class SeBackend(models.Model):
     def _get_product_bound(self, domain):
         query = self.env["product.product"]._where_calc(domain)
         self.env["product.product"]._apply_ir_rules(query, "read")
-        query.left_join(
-            lhs_alias="product_product",
-            lhs_column="id",
-            rhs_table="se_binding",
-            rhs_column="res_id",
-            link="se_binding",
-            extra="product_product__se_binding.res_model='product.product'",
+        rhs_alias = query.make_alias("product_product", "se_binding")
+        condition = SQL(
+            "%s = %s AND %s = %s",
+            SQL.identifier("product_product", "id"),
+            SQL.identifier(rhs_alias, "res_id"),
+            SQL.identifier(rhs_alias, "res_model"),
+            "product.product",
         )
+        query.add_join("LEFT JOIN", rhs_alias, "se_binding", condition)
         return self.env["product.product"].browse(query)
 
     def _get_product_to_bind(self, domain):
