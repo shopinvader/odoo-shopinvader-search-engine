@@ -20,7 +20,8 @@ class TestUpdate(TestProductBindingUpdateBase):
         self.assertEqual(
             self.product_binding.state,
             "to_delete",
-            "The product binding should not be updated if an archived product is updated",
+            "The product binding should not be updated "
+            "if an archived product is updated",
         )
 
     def test_update_product_translation(self):

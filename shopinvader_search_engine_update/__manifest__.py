@@ -3,9 +3,8 @@
 
 {
     "name": "Shopinvader Search Engine Update",
-    "summary": """
-        Shopinvader: Mark product binding to export on product update""",
-    "version": "16.0.1.0.2",
+    "summary": "Shopinvader: Mark product binding to export on product update",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
@@ -13,7 +12,6 @@
         "shopinvader_search_engine",
     ],
     "data": [],
-    "demo": [],
     "development_status": "Alpha",
-    "installable": False,
+    "installable": True,
 }
