@@ -12,12 +12,12 @@ from odoo.addons.shopinvader_search_engine_product_stock.tests.common import (
 class TestProductProduct(StockCommonCase):
     """Tests for product stock info."""
 
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.company = cls.env.ref("base.main_company")
-        cls.index.stock_level_config = "state_and_low_qty"
-        cls.product = cls.product.with_context(index_id=cls.index.id)
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.company = self.env.ref("base.main_company")
+        self.index.stock_level_config = "state_and_low_qty"
+        self.product = self.product.with_context(index_id=self.index.id)
+        return rv
 
     def test_out_of_stock(self):
         self.assertEqual(
