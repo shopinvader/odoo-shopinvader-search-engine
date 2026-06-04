@@ -12,10 +12,10 @@ class TestProductBinding(BaseTestProductBinding):
     Tests for product about seo_title field
     """
 
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.product = cls.product.with_context(index_id=cls.se_product_index.id)
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.product = self.product.with_context(index_id=self.se_product_index.id)
+        return rv
 
     def test_suffix_empty(self):
         """
