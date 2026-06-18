@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "Shopinvader Product New",
-    "summary": "Shopinvader product new",
-    "version": "14.0.1.0.1",
+    "name": "Shopinvader Search Engine Product New",
+    "summary": "Shopinvader search engin product new",
+    "version": "18.0.1.0.0",
     "category": "e-commerce",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": "Akretion",
@@ -14,7 +14,6 @@
     "depends": ["shopinvader"],
     "data": [
         "views/product_template.xml",
-        "data/ir_export_product.xml",
         "data/ir_cron.xml",
     ],
 }
