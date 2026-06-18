@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* shopinvader_product_new
+# 	* shopinvader_search_engine_product_new
 #
 msgid ""
 msgstr ""
@@ -13,37 +13,37 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: shopinvader_product_new
-#: model:ir.actions.server,name:shopinvader_product_new.ir_cron_compute_new_product_ir_actions_server
-#: model:ir.cron,cron_name:shopinvader_product_new.ir_cron_compute_new_product
-#: model:ir.cron,name:shopinvader_product_new.ir_cron_compute_new_product
+#. module: shopinvader_search_engine_product_new
+#: model:ir.actions.server,name:shopinvader_search_engine_product_new.ir_cron_compute_new_product_ir_actions_server
+#: model:ir.cron,cron_name:shopinvader_search_engine_product_new.ir_cron_compute_new_product
+#: model:ir.cron,name:shopinvader_search_engine_product_new.ir_cron_compute_new_product
 msgid "Compute new products"
 msgstr ""
 
-#. module: shopinvader_product_new
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_product_template__display_name
+#. module: shopinvader_search_engine_product_new
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_product_template__display_name
 msgid "Display Name"
 msgstr ""
 
-#. module: shopinvader_product_new
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_product_template__id
+#. module: shopinvader_search_engine_product_new
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_product_template__id
 msgid "ID"
 msgstr ""
 
-#. module: shopinvader_product_new
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_product_template____last_update
+#. module: shopinvader_search_engine_product_new
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_product_template____last_update
 msgid "Last Modified on"
 msgstr ""
 
-#. module: shopinvader_product_new
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_product_product__new_product
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_product_template__new_product
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_shopinvader_product__new_product
-#: model:ir.model.fields,field_description:shopinvader_product_new.field_shopinvader_variant__new_product
+#. module: shopinvader_search_engine_product_new
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_product_product__new_product
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_product_template__new_product
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_shopinvader_product__new_product
+#: model:ir.model.fields,field_description:shopinvader_search_engine_product_new.field_shopinvader_variant__new_product
 msgid "New product"
 msgstr ""
 
-#. module: shopinvader_product_new
-#: model:ir.model,name:shopinvader_product_new.model_product_template
+#. module: shopinvader_search_engine_product_new
+#: model:ir.model,name:shopinvader_search_engine_product_new.model_product_template
 msgid "Product Template"
 msgstr ""
