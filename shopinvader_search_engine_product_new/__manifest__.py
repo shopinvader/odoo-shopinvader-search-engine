@@ -7,7 +7,7 @@
     "summary": "Shopinvader product new",
     "version": "14.0.1.0.1",
     "category": "e-commerce",
-    "website": "https://github.com/shopinvader/odoo-shopinvader",
+    "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": "Akretion",
     "license": "AGPL-3",
     "installable": True,

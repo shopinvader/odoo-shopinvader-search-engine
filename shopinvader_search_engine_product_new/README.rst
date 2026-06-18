@@ -16,9 +16,9 @@ Shopinvader Product New
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader-lightgray.png?logo=github
-    :target: https://github.com/shopinvader/odoo-shopinvader/tree/14.0/shopinvader_search_engine_product_new
-    :alt: shopinvader/odoo-shopinvader
+.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader--search--engine-lightgray.png?logo=github
+    :target: https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine_product_new
+    :alt: shopinvader/odoo-shopinvader-search-engine
 
 |badge1| |badge2| |badge3|
 
@@ -32,20 +32,21 @@ This module adds a 'new' field to display new products in website.
 Configuration
 =============
 
-A cron job "Compute new products" comes with this module, it can be configured.
-It runs every day and flags as 'new' the last (50 by default) shopinvader products created.
-The method 'compute_new_product' used by this job takes two arguments:
+A cron job "Compute new products" comes with this module, it can be
+configured. It runs every day and flags as 'new' the last (50 by
+default) shopinvader products created. The method 'compute_new_product'
+used by this job takes two arguments:
 
-* The maximum number of product to flag.
-* Extra domain for searching the products.
+- The maximum number of product to flag.
+- Extra domain for searching the products.
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/shopinvader/odoo-shopinvader/issues/new?body=module:%20shopinvader_search_engine_product_new%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues/new?body=module:%20shopinvader_search_engine_product_new%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -53,27 +54,27 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Benoît GUILLOT <benoit.guillot@akretion.com>
-* Sebastien BEAU <sebastien.beau@akretion.com>
+- Benoît GUILLOT <benoit.guillot@akretion.com>
+- Sebastien BEAU <sebastien.beau@akretion.com>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 The development of this module has been financially supported by:
 
-* Akretion R&D
-* LaboAndCo
+- Akretion R&D
+- LaboAndCo
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
-This module is part of the `shopinvader/odoo-shopinvader <https://github.com/shopinvader/odoo-shopinvader/tree/14.0/shopinvader_search_engine_product_new>`_ project on GitHub.
+This module is part of the `shopinvader/odoo-shopinvader-search-engine <https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine_product_new>`_ project on GitHub.
 
 You are welcome to contribute.

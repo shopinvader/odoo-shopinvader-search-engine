@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
-
     <record forcecreate="True" id="ir_cron_compute_new_product" model="ir.cron">
         <field name="name">Compute new products</field>
         <field eval="True" name="active" />
@@ -12,5 +11,4 @@
         <field ref="model_product_template" name="model_id" />
         <field name="code">model.compute_new_product(50)</field>
     </record>
-
 </odoo>
