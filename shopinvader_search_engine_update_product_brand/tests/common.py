@@ -7,21 +7,21 @@ from odoo.addons.shopinvader_search_engine_update.tests.common import (
 
 
 class TestProductBrandUpdateBase(TestProductBindingUpdateBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.brand = cls.env["product.brand"].create({"name": "brand"})
-        cls.brand_index = cls.env["se.index"].create(
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.brand = self.env["product.brand"].create({"name": "brand"})
+        self.brand_index = self.env["se.index"].create(
             {
                 "name": "brand",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product_brand.model_product_brand").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product_brand.model_product_brand").id,
                 "serializer_type": "shopinvader_brand_exports",
             }
         )
-        cls.product.product_brand_id = cls.brand
-        cls.brand_binding = cls.brand._add_to_index(cls.brand_index)
-        cls.brand_binding.state = "done"
-        cls.new_brand = cls.env["product.brand"].create({"name": "new brand"})
-        cls.new_brand_binding = cls.new_brand._add_to_index(cls.brand_index)
-        cls.new_brand_binding.state = "done"
+        self.product.product_brand_id = self.brand
+        self.brand_binding = self.brand._add_to_index(self.brand_index)
+        self.brand_binding.state = "done"
+        self.new_brand = self.env["product.brand"].create({"name": "new brand"})
+        self.new_brand_binding = self.new_brand._add_to_index(self.brand_index)
+        self.new_brand_binding.state = "done"
+        return rv
