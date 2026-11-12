@@ -5,7 +5,7 @@
 {
     "name": "Shopinvader image",
     "summary": "Add the export of Image for Shopinvader",
-    "version": "16.0.1.0.4",
+    "version": "18.0.1.0.0",
     "category": "e-commerce",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
     "author": "Akretion, ACSONE SA/NV",
@@ -23,6 +23,6 @@
         "demo/se_thumbnail_size.xml",
         "demo/fs_product_image.xml",
     ],
-    "installable": False,
+    "installable": True,
     "development_status": "Alpha",
 }

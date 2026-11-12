@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =================
 Shopinvader image
 =================
@@ -17,19 +13,19 @@ Shopinvader image
 .. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
     :alt: Alpha
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader-lightgray.png?logo=github
-    :target: https://github.com/shopinvader/odoo-shopinvader/tree/16.0/shopinvader_search_engine_image
-    :alt: shopinvader/odoo-shopinvader
+.. |badge3| image:: https://img.shields.io/badge/github-shopinvader%2Fodoo--shopinvader--search--engine-lightgray.png?logo=github
+    :target: https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine_image
+    :alt: shopinvader/odoo-shopinvader-search-engine
 
 |badge1| |badge2| |badge3|
 
 This module extends the search_engine_image_thumbnail module to generate
-thumbnails for images for products and categories. The related information
-is then exported to the search engine as part of the product and category
-data.
+thumbnails for images for products and categories. The related
+information is then exported to the search engine as part of the product
+and category data.
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -45,29 +41,30 @@ Usage
 =====
 
 To activate the generation and the export of the thumbnails information
-to a search engine, you must define thumbnails size and configure on you index
-the sizes you want to export and for which fields theses sizes are valid.
+to a search engine, you must define thumbnails size and configure on you
+index the sizes you want to export and for which fields theses sizes are
+valid.
 
 Changelog
 =========
 
 10.0.1.0.0 (2018-05-02)
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-* [ADD] First draft to have image into dict/json exported
+- [ADD] First draft to have image into dict/json exported
 
 12.0.1.0.0 (2019-06-03)
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-* [12.0][MIG] shopinvader_image
+- [12.0][MIG] shopinvader_image
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/shopinvader/odoo-shopinvader/issues/new?body=module:%20shopinvader_search_engine_image%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/shopinvader/odoo-shopinvader-search-engine/issues/new?body=module:%20shopinvader_search_engine_image%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -75,23 +72,23 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 * ACSONE SA/NV
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sebastien BEAU <sebastien.beau@akretion.com>
-* Laurent Mignon <laurent.mignon@acsone.com>
-* François Honoré <francois.honore@acsone.eu>
-* Raphaël Reverdy <raphael.reverdy@akretion.com>
-* Denis Roussel <denis.roussel@acsone.eu>
+- Sebastien BEAU <sebastien.beau@akretion.com>
+- Laurent Mignon <laurent.mignon@acsone.com>
+- François Honoré <francois.honore@acsone.eu>
+- Raphaël Reverdy <raphael.reverdy@akretion.com>
+- Denis Roussel <denis.roussel@acsone.eu>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
-This module is part of the `shopinvader/odoo-shopinvader <https://github.com/shopinvader/odoo-shopinvader/tree/16.0/shopinvader_search_engine_image>`_ project on GitHub.
+This module is part of the `shopinvader/odoo-shopinvader-search-engine <https://github.com/shopinvader/odoo-shopinvader-search-engine/tree/18.0/shopinvader_search_engine_image>`_ project on GitHub.
 
 You are welcome to contribute.
