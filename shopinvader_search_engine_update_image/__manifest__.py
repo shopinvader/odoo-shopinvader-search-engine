@@ -6,7 +6,7 @@
     "summary": """
         Shopinvader: Mark products linked to an image to be updated when the
         image change""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV",
     "website": "https://github.com/shopinvader/odoo-shopinvader-search-engine",
@@ -15,7 +15,6 @@
         "shopinvader_search_engine_update",
     ],
     "data": [],
-    "demo": [],
     "development_status": "Alpha",
-    "installable": False,
+    "installable": True,
 }
