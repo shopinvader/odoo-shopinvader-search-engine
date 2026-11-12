@@ -7,11 +7,11 @@ from .common import TestMultiProductBindingBase
 
 
 class TestPriceListItemUpdate(TestMultiProductBindingBase, TestCategoryBindingBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.product_binding.state = "done"
-        cls.product_2_binding.state = "done"
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.product_binding.state = "done"
+        self.product_2_binding.state = "done"
+        return rv
 
     def test_update_pricelist_item_variant(self):
         self.assertEqual(self.product_binding.state, "done")
