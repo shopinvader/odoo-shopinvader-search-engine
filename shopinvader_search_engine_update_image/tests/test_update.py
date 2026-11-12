@@ -8,15 +8,15 @@ from odoo.addons.shopinvader_search_engine_image.tests.common import (
 
 
 class TestUpdate(TestSeMultiImageThumbnailCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.product_binding.state = "done"
-        cls.new_tag = cls.env["image.tag"].create(
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.product_binding.state = "done"
+        self.new_tag = self.env["image.tag"].create(
             {
                 "name": "new_tag",
             }
         )
+        return rv
 
     def test_unlink_image(self):
         self.product.variant_image_ids.unlink()
