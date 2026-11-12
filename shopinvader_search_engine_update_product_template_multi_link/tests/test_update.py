@@ -8,26 +8,26 @@ from odoo.addons.shopinvader_search_engine_update.tests.common import (
 
 
 class TestUpdate(TestProductBindingUpdateBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.product_template = cls.product.product_tmpl_id
-        cls.product_template_2 = cls.env["product.template"].create({"name": "P2"})
-        cls.product_2 = cls.product_template_2.product_variant_id
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.product_template = self.product.product_tmpl_id
+        self.product_template_2 = self.env["product.template"].create({"name": "P2"})
+        self.product_2 = self.product_template_2.product_variant_id
 
-        cls.product_template_3 = cls.env["product.template"].create({"name": "P3"})
-        cls.product_3 = cls.product_template_3.product_variant_id
+        self.product_template_3 = self.env["product.template"].create({"name": "P3"})
+        self.product_3 = self.product_template_3.product_variant_id
 
         xmlid = "product_template_multi_link.product_template_link_type_up_selling"
-        cls.link_type_up_sell = cls.env.ref(xmlid)
-        cls.model = cls.env["product.template.link"]
+        self.link_type_up_sell = self.env.ref(xmlid)
+        self.model = self.env["product.template.link"]
 
-        cls.product_binding_2 = cls.product_2._add_to_index(cls.se_product_index)
-        cls.product_binding_3 = cls.product_3._add_to_index(cls.se_product_index)
-        cls.product_bindings = (
-            cls.product_binding + cls.product_binding_2 + cls.product_binding_3
+        self.product_binding_2 = self.product_2._add_to_index(self.se_product_index)
+        self.product_binding_3 = self.product_3._add_to_index(self.se_product_index)
+        self.product_bindings = (
+            self.product_binding + self.product_binding_2 + self.product_binding_3
         )
-        cls.product_bindings.write({"state": "done"})
+        self.product_bindings.write({"state": "done"})
+        return rv
 
     def test_flow(self):
         # given
