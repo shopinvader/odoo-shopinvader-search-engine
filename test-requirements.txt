@@ -1,2 +1,22 @@
 odoo-test-helper
 vcrpy-unittest
+
+odoo-addon-fs_image_thumbnail @ git+https://github.com/OCA/storage.git@refs/pull/470/head#subdirectory=fs_image_thumbnail
+odoo-addon-fs_base_multi_image @ git+https://github.com/OCA/storage.git@refs/pull/506/head#subdirectory=fs_base_multi_image
+odoo-addon-fs_product_multi_image @ git+https://github.com/OCA/storage.git@refs/pull/449/head#subdirectory=fs_product_multi_image
+odoo-addon-fs_product_brand_multi_image @ git+https://github.com/OCA/storage.git@refs/pull/505/head#subdirectory=fs_product_brand_multi_image
+
+odoo-addon-search_engine_image_thumbnail @ git+https://github.com/OCA/search-engine.git@refs/pull/228/head#subdirectory=search_engine_image_thumbnail
+
+odoo-addon-product_category_name_translatable @ git+https://github.com/OCA/product-attribute@refs/pull/2130/head#subdirectory=product_category_name_translatable
+
+
+odoo-addon-shopinvader_base_url @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/1/head#subdirectory=shopinvader_base_url
+odoo-addon-shopinvader_product @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/2/head#subdirectory=shopinvader_product
+odoo-addon-shopinvader_product_seo @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/5/head#subdirectory=shopinvader_product_seo
+odoo-addon-shopinvader_product_brand @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/6/head#subdirectory=shopinvader_product_brand
+
+
+odoo-addon-shopinvader_search_engine @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/2/head#subdirectory=shopinvader_search_engine
+odoo-addon-shopinvader_search_engine_product_brand @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/6/head#subdirectory=shopinvader_search_engine_product_brand
+odoo-addon-shopinvader_search_engine_image @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/8/head#subdirectory=shopinvader_search_engine_image

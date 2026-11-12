@@ -8,69 +8,71 @@ from odoo.addons.shopinvader_search_engine_image.tests.common import (
 
 
 class ProductBrandImageCase(TestSeMultiImageThumbnailCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.backend.image_data_url_strategy = "odoo"
+    def setUp(self):
+        super().setUp()
+        self.backend.image_data_url_strategy = "odoo"
+
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
         # create index for brands
-        cls.brand_index = cls.env["se.index"].create(
+        self.brand_index = self.env["se.index"].create(
             {
                 "name": "brand",
-                "backend_id": cls.backend.id,
-                "model_id": cls.env.ref("product_brand.model_product_brand").id,
+                "backend_id": self.backend.id,
+                "model_id": self.env.ref("product_brand.model_product_brand").id,
                 "serializer_type": "shopinvader_brand_exports",
             }
         )
         # create sizes for brands
-        cls.env["se.image.field.thumbnail.size"].create(
+        self.env["se.image.field.thumbnail.size"].create(
             {
-                "model_id": cls.env.ref("product_brand.model_product_brand").id,
-                "field_id": cls.env.ref(
+                "model_id": self.env.ref("product_brand.model_product_brand").id,
+                "field_id": self.env.ref(
                     "fs_product_brand_multi_image.field_product_brand__image_ids"
                 ).id,
-                "backend_id": cls.backend.id,
-                "size_ids": [(6, 0, [cls.size_small.id, cls.size_medium.id])],
+                "backend_id": self.backend.id,
+                "size_ids": [(6, 0, [self.size_small.id, self.size_medium.id])],
             }
         )
-        cls.brand = cls.env["product.brand"].create(
+        self.brand = self.env["product.brand"].create(
             {
                 "name": "Test Brand",
             }
         )
-        cls.brand_white_image = cls.env["fs.product.brand.image"].create(
+        self.brand_white_image = self.env["fs.product.brand.image"].create(
             {
                 "sequence": 1,
-                "brand_id": cls.brand.id,
+                "brand_id": self.brand.id,
                 "specific_image": {
                     "filename": "white.png",
-                    "content": base64.b64encode(cls.white_image),
+                    "content": base64.b64encode(self.white_image),
                 },
-                "tag_id": cls.tag1.id,
+                "tag_id": self.tag1.id,
             }
         )
-        cls.brand_black_image = cls.env["fs.product.brand.image"].create(
+        self.brand_black_image = self.env["fs.product.brand.image"].create(
             {
                 "sequence": 2,
-                "brand_id": cls.brand.id,
+                "brand_id": self.brand.id,
                 "specific_image": {
                     "filename": "black.png",
-                    "content": base64.b64encode(cls.black_image),
+                    "content": base64.b64encode(self.black_image),
                 },
-                "tag_id": cls.tag2.id,
+                "tag_id": self.tag2.id,
             }
         )
-        cls.brand_binding = cls.brand._add_to_index(cls.brand_index)
+        self.brand_binding = self.brand._add_to_index(self.brand_index)
 
-    def setUp(self):
-        super().setUp()
         self.fs_storage = self.env["fs.storage"].create(
             {
                 "name": "Temp FS Storage",
                 "protocol": "memory",
                 "code": "mem_dir_brand",
                 "directory_path": "/tmp/",
-                "model_xmlids": "fs_product_brand_multi_image.model_fs_product_brand_image",
+                "model_xmlids": "fs_product_brand_multi_image."
+                "model_fs_product_brand_image",
                 "base_url": "https://media.alcyonbelux.be/",
                 "is_directory_path_in_url": False,
             }
         )
+        return rv
