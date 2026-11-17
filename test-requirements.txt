@@ -1,2 +1,12 @@
 odoo-test-helper
 vcrpy-unittest
+
+
+odoo-addon-fs_base_multi_media @ git+https://github.com/OCA/storage.git@refs/pull/507/head#subdirectory=fs_base_multi_media
+odoo-addon-fs_product_multi_media @ git+https://github.com/OCA/storage.git@refs/pull/508/head#subdirectory=fs_product_multi_media
+
+odoo-addon-product_category_name_translatable @ git+https://github.com/OCA/product-attribute@refs/pull/2130/head#subdirectory=product_category_name_translatable
+
+odoo-addon-shopinvader_product @ git+https://github.com/shopinvader/odoo-shopinvader-catalog@refs/pull/2/head#subdirectory=shopinvader_product
+
+odoo-addon-shopinvader_search_engine @ git+https://github.com/shopinvader/odoo-shopinvader-search-engine@refs/pull/2/head#subdirectory=shopinvader_search_engine
