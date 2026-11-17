@@ -7,22 +7,22 @@ from odoo.addons.shopinvader_search_engine_update_product_brand.tests.common imp
 
 
 class TestUpdate(TestProductBrandUpdateBase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.tag = cls.env["product.brand.tag"].create(
+    def setup_records(self, backend=None):
+        rv = super().setup_records(backend=backend)
+        self.tag = self.env["product.brand.tag"].create(
             {
                 "name": "tag",
             }
         )
-        cls.new_tag = cls.env["product.brand.tag"].create(
+        self.new_tag = self.env["product.brand.tag"].create(
             {
                 "name": "new_tag",
             }
         )
-        cls.brand.tag_ids = cls.tag
-        cls.brand_binding.state = "done"
-        cls.product_binding.state = "done"
+        self.brand.tag_ids = self.tag
+        self.brand_binding.state = "done"
+        self.product_binding.state = "done"
+        return rv
 
     def test_unlink_tag(self):
         self.brand.tag_ids.unlink()
