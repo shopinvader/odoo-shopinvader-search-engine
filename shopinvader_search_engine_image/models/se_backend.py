@@ -5,7 +5,7 @@
 # Copyright 2023 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.exceptions import UserError
 
 from odoo.addons.fs_image.fields import FSImageValue
@@ -62,7 +62,7 @@ class SeBackend(models.Model):
         if self.image_data_url_strategy == "odoo":
             value = image.internal_url
         elif self.image_data_url_strategy == "storage_url":
-            value = image.url
+            value = image.attachment.fs_url
         elif self.image_data_url_strategy == "url_path":
             value = image.url_path
         else:
@@ -71,7 +71,7 @@ class SeBackend(models.Model):
             )
         if not value:
             raise UserError(
-                _(
+                self.env._(
                     "No URL found for image %(image_name)s with strategy %(strategy)s",
                     image_name=image.name,
                     strategy=self.image_data_url_strategy,
